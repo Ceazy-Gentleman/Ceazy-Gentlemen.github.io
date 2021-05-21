@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Ceazy-Gentleman.github.io</id>
+    <title>Gridea</title>
+    <updated>2021-05-21T14:36:04.526Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Ceazy-Gentleman.github.io"/>
+    <link rel="self" href="https://Ceazy-Gentleman.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://Ceazy-Gentleman.github.io/images/avatar.png</logo>
+    <icon>https://Ceazy-Gentleman.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2021, Gridea</rights>
+    <entry>
+        <title type="html"><![CDATA[Vｅｃｔｏｒ详解]]></title>
+        <id>https://Ceazy-Gentleman.github.io/post/C++ vector详解/</id>
+        <link href="https://Ceazy-Gentleman.github.io/post/C++ vector详解/">
+        </link>
+        <updated>2021-04-06T15:00:03.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="简要描述"><strong>简要描述</strong></h2>
+<p>​		vector是类似于数组的容器，可以容纳许多类型的数据，如若干个整数，内容比数组更为全面。使用它时需要包含头文件：#include；很多操作都有自己的函数可以直接拿过来使用。主要函数包括：</p>
+<pre><code class="language-c++">v.push_back(k);//尾插元素
+v.insert(it,k);//在任意位置插入元素
+v.eraser(it,it+k);//删除任意元素
+v.capacity()//容器容量
+v.size();//实际包含的元素个数
+v.clear();//清空容器
+v.empty();//判断容器是否为空
+reverse(v.begin(),v.end());//反转任意段元素
+sort(v,begin(),v.end(),cmp);//sort排序默认由小到大，cmp可以自由规定排序算法。
+</code></pre>
+<h2 id="vector的初始化">vector的初始化</h2>
+<ul>
+<li>
+<p>确定元素数目, 但取值不确定</p>
+<pre><code class="language-c++">vector&lt;int&gt; a(10);
+</code></pre>
+</li>
+<li>
+<p>确定元素数目，并给每个元素赋予相同初值</p>
+<pre><code class="language-c++">vector&lt;int&gt; a(10,1);
+</code></pre>
+</li>
+<li>
+<p>复制性赋值1：利用已有容器给新的容器赋值</p>
+<pre><code class="language-c++">vector&lt;int&gt;  a(b);
+</code></pre>
+</li>
+<li>
+<p>复制性赋值2：利用已有容器的部分元素给容器赋予初值</p>
+<pre><code class="language-c++">vector&lt;int&gt; a(b.begin(),b.begin()+3);
+</code></pre>
+</li>
+</ul>
+<h2 id="vector增删除查改操作">vector增删除查改操作</h2>
+<pre><code class="language-c++">(1)a.assign(b.begin(),b.begin()+3);//b为向量，将b的0~2个元素构成的向量赋给a
+(2)a.assign(4,2);//a只含4个元素，且每个元素为2
+(3)a.back();//返回a的最后一个元素
+(4)a.front();//返回a的第一个元素
+(5)a[i];//返回a的第i个元素，当且仅当a[i]存在
+(6)a.clear();//清空a中的元素
+(7)a.empty();//判断a是否为空，空则返回true，不空则返回false
+(8)a.pop_back();//删除a向量的最后一个元素
+(9)a.erase(a.begin()+1,a.begin()+3);//删除a中第1个（从第0个算起）到第2个元素，也就是说删除的元素从a.begin()+1算起（包括它）一直到a.begin()+3（不包括它）
+(10)a.push_back(5);//在a的最后一个向量后插入一个元素，其值为5
+(11)a.insert(a.begin()+1,5);//在a的第1个元素（从第0个算起）的位置插入数值5，如a为1，2，3，4，插入元素后为1，5，2，3，4
+(12)a.insert(a.begin()+1,3,5);//在a的第1个元素（从第0个算起）的位置插入3个数，其值都为5
+(13)a.insert(a.begin()+1,b+3,b+6);//b为数组，在a的第1个元素（从第0个算起）的位置插入b的第3个元素到第5个元素（不包括b+6），如b为1，2，3，4，5，9，8，插入元素后为1，4，5，9，2，3，4，5，9，8
+(14)a.size();//返回a中元素的个数，
+(15)a.capacity();//返回a在内存中共可以容纳的元素个数
+(16)a.resize(10);//将a的现有元素个数调至10个，多则删，少则补，其值随机
+(17)a.resize(10,2);//将a的现有元素个数调至10个，多则删，少则补，其值为2
+(18)a.reserve(100);//将a的容量（capacity）扩充至100，也就是说现在测试a.capacity();
+(19)a.swap(b);//b为向量，将a中的元素和b中的元素进行整体性交换
+(20)a==b;//b为向量，向量的比较操作还有!=,&gt;=,&lt;=,&gt;,&lt;
+</code></pre>
+<ul>
+<li>
+<p><mark>注意：当你不知道函数返回类型时，可用自适应关键字auto，它会自动推理</mark></p>
+<pre><code class="language-c++">auto cap = value.capacity();
+auto size = value.size();
+</code></pre>
+</li>
+</ul>
+<h2 id="vector的几种重要算法">vector的几种重要算法</h2>
+<p>​		要包含头文件<algorithm>才能使用</p>
+<pre><code class="language-c++">#include&lt;algorithm&gt;
+(1)sort(a.begin(),a.end());
+//对a中的从a.begin()（包括它）到a.end（不包括它）的元素进行从小到大排列
+(2)reverse(a.begin(),a.end());
+//对a中的从a.begin()（包括它）到a.end（不包括它）的元素倒置，但不排列，如a中的元素为1，3，2，4，倒置后为4，2，3，1
+(3)copy(a.begin(),a.end(),b.begin()+1);
+//对a中的从a.begin()（包括它）)到a.end（不包括它）的元素复制到b中，从b.begin()+1的位置（包括它）开始复制，覆盖掉原有元素
+4)find(a.begin(),a.end(),10);
+//在a中的从a.begin()（包括它）到a.end()（不包括它）的元素中查找10，若存在返回其在向量中的位置
+5)fill(起始位置，最后位置，填充值)；
+   fill (array,array+4,5);         //myvector: 5 5 5 5 0 0 0 0
+   fill (array+3,array+6,8); 
+</code></pre>
+<h2 id="vector常见使用方式">vector常见使用方式</h2>
+<h3 id="添加元素">添加元素✨</h3>
+<ul>
+<li>
+<p>直接往后塞，操作初始申请的容量会重新分配内存</p>
+<pre><code class="language-c++">vector&lt;int&gt; a;
+for(int i=0;i&lt;10;i++)
+a.push_back(i);
+</code></pre>
+</li>
+<li>
+<p>从数组中选择元素添加</p>
+<pre><code class="language-c++">int a[6] = {1,2,3,4,5,6};
+vector&lt;int&gt; b;
+for(int i=1; i&lt;=4; i++)
+b.push_back(a[i]);
+</code></pre>
+</li>
+<li>
+<p>从现有向量中选择元素添加</p>
+<pre><code class="language-c++">int a[6] = {1,2,3,4,5,6};
+vector&lt;int&gt; b;
+vector&lt;int&gt; c(a,a+4);
+for(vector&lt;int&gt;::iterator it=c.begin();it&lt;c.end();it++)
+b.push_back(*it);
+</code></pre>
+</li>
+<li>
+<p>从文件中读取元素添加</p>
+<pre><code class="language-c++">ifstream in(&quot;data.txt&quot;);
+vector&lt;int&gt; a;
+for(int i; in&gt;&gt;i)
+    a.push_back(i);
+</code></pre>
+</li>
+</ul>
+<h3 id="读取元素">读取元素✨</h3>
+<ul>
+<li>通过下标</li>
+</ul>
+<pre><code class="language-c++">int a[6]={1,2,3,4,5,6};
+vector&lt;int&gt; b(a,a+4);
+for(int i=0;i&lt;=b.size()-1;i++)
+    cout&lt;&lt;b[i]&lt;&lt;&quot; &quot;;
+</code></pre>
+<ul>
+<li>通过迭代器</li>
+</ul>
+<pre><code>int a[6]={1,2,3,4,5,6};
+vector&lt;int&gt; b(a,a+4);
+for(vector&lt;int&gt;::iterator it=b.begin();it!=b.end();it++)
+    cout&lt;&lt;*it&lt;&lt;&quot; &quot;;
+</code></pre>
+<h2 id="参考链接">参考链接</h2>
+<ol>
+<li>
+<p><a href="https://blog.csdn.net/weixin_38452841/article/details/109068324">vector学习笔记</a></p>
+</li>
+<li>
+<p><a href="https://www.cnblogs.com/lancidie/p/12377012.html">vector Capacity与Size的区别</a></p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Hello Gridea]]></title>
+        <id>https://Ceazy-Gentleman.github.io/post/hello-gridea/</id>
+        <link href="https://Ceazy-Gentleman.github.io/post/hello-gridea/">
+        </link>
+        <updated>2018-12-11T16:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
+✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
+<!-- more -->
+<p><a href="https://github.com/getgridea/gridea">Github</a><br>
+<a href="https://gridea.dev/">Gridea 主页</a><br>
+<a href="http://fehey.com/">示例网站</a></p>
+<h2 id="特性">特性👇</h2>
+<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
+<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
+<p>🏷️  你可以对文章进行标签分组</p>
+<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
+<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
+<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
+<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
+<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
+<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
+<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
+<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
+<p>未来，它一定会成为你离不开的伙伴</p>
+<p>尽情发挥你的才华吧！</p>
+<p>😘 Enjoy~</p>
+]]></content>
+    </entry>
+</feed>
