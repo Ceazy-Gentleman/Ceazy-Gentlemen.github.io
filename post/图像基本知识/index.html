@@ -3,7 +3,7 @@
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>图像基本知识 | Gridea</title>
-<link rel="shortcut icon" href="https://Ceazy-Gentleman.github.io/favicon.ico?v=1621698414313">
+<link rel="shortcut icon" href="https://Ceazy-Gentleman.github.io/favicon.ico?v=1621782064448">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://Ceazy-Gentleman.github.io/styles/main.css">
 <link rel="alternate" type="application/atom+xml" title="图像基本知识 | Gridea - Atom Feed" href="https://Ceazy-Gentleman.github.io/atom.xml">
@@ -11,11 +11,12 @@
 
 
 
-    <meta name="description" content="1. 图像存储的基本格式
+    <meta name="description" content="0. 物体成像基本原理
+1. 图像存储的基本格式
 位图
 ​			位图指的是由像素点构成的图，图的大小发生变化时像素点的数量并不会发生改变。
-​			目前主流的图像文件格式有 .bmp； .jpg；.jpeg；.png；.gif；.webp；.tiff；.psd 等..." />
-    <meta name="keywords" content="图像处理" />
+​			目前主流的图像文件格式有 .bmp； .jpg；.jpeg；.png；.gif；.webp；..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -24,7 +25,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://Ceazy-Gentleman.github.io">
-  <img class="avatar" src="https://Ceazy-Gentleman.github.io/images/avatar.png?v=1621698414313" alt="">
+  <img class="avatar" src="https://Ceazy-Gentleman.github.io/images/avatar.png?v=1621782064448" alt="">
   </a>
   <h1 class="site-title">
     Gridea
@@ -81,21 +82,18 @@
             </h2>
             <div class="post-info">
               <span>
-                2021-05-22
+                2021-04-06
               </span>
               <span>
-                12 min read
+                22 min read
               </span>
-              
-                <a href="https://Ceazy-Gentleman.github.io/tag/UowZAOaeG/" class="post-tag">
-                  # 图像处理
-                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <h1 id="1-图像存储的基本格式">1. 图像存储的基本格式</h1>
+                <h1 id="0-物体成像基本原理">0. 物体成像基本原理</h1>
+<h1 id="1-图像存储的基本格式">1. 图像存储的基本格式</h1>
 <h2 id="位图">位图</h2>
 <p>​			位图指的是由像素点构成的图，图的大小发生变化时像素点的数量并不会发生改变。</p>
 <p>​			目前主流的图像文件格式有 .bmp； .jpg；.jpeg；.png；.gif；.webp；.tiff；.psd 等各种不同的文件格式。在这些图像格式中大部分的格式，都是将像素数据经过压缩编码后进行保存的，这里涉及到比较复杂的图像压缩算法等操作，只有BMP格式的文件是支持原始图像数据保存的。</p>
@@ -197,15 +195,118 @@
 <figure data-type="image" tabindex="1"><img src="https://i.loli.net/2021/05/22/itTOSeQgYRofvFE.jpg" alt="img" loading="lazy"></figure>
 </li>
 </ul>
+<h1 id="3-基本的色彩知识">3. 基本的色彩知识</h1>
+<ul>
+<li>
+<p>色彩空间（color space）</p>
+<p>​		是对<a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BD%A9">色彩</a>的组织方式。借助色彩空间和针对物理设备的测试，可以得到色彩的固定<a href="https://zh.wikipedia.org/wiki/%E6%A8%A1%E6%93%AC%E4%BF%A1%E8%99%9F">模拟</a>和<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E5%AD%97%E4%BF%A1%E5%8F%B7">数字</a>表示。色彩空间可以只通过任意挑选一些颜色来定义，比如像<a href="https://zh.wikipedia.org/wiki/%E5%BD%A9%E9%80%9A">彩通</a>系统就只是把一组特定的颜色作为<a href="https://zh.wikipedia.org/wiki/%E8%AA%BF%E8%89%B2%E7%9B%A4_(%E9%9B%BB%E8%85%A6%E5%9C%96%E5%BD%A2%E5%AD%B8)">样本</a>，然后给每个颜色定义名字和代码；也可以是基于严谨的数学定义，比如 <a href="https://zh.wikipedia.org/wiki/Adobe_RGB%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">Adobe RGB</a>、<a href="https://zh.wikipedia.org/wiki/SRGB%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">sRGB</a>。所以<strong>色彩空间不唯一</strong>。</p>
+<p>​		定义色彩空间时，通常使用 CIE（Commission Internationale de L’Eclairage）制定的标准色彩空间作为参考标准，这些标准色彩空间在设计时便要求包含普通人眼可见的所有颜色。这类色彩空间又称之为参照色彩空间。正式定义一个色彩空间时通常采用的标准是<a href="https://zh.wikipedia.org/wiki/Lab%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">CIELAB</a>或<a href="https://zh.wikipedia.org/wiki/CIE1931%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">CIEXYZ</a>色彩空间，</p>
+<figure data-type="image" tabindex="2"><img src="https://i.loli.net/2021/05/23/UtEAvZVMODdh6Js.png" alt="img" loading="lazy"></figure>
+<center>CIE 1931 XYZ(CIE标准的一种)</center>
+</li>
+<li>
+<p>色彩模型（color model）</p>
+<p>​		是一种抽象数学模型，通过<a href="https://zh.wikipedia.org/wiki/%E5%A4%9A%E5%85%83%E7%BB%84">一组</a>数字来描述颜色（例如<a href="https://zh.wikipedia.org/wiki/RGB">RGB</a>使用三元组、<a href="https://zh.wikipedia.org/wiki/CMYK">CMYK</a>使用四元组）。如果在色彩模型和一个特定的参照色彩空间之间创建特定的映射函数，那么就会在这个参照色彩空间中出现有限的“覆盖区”（英语：footprint），称作<a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%9F%9F">色域</a>。</p>
+<blockquote>
+<p><mark>Notes: “色彩空间”有着固定的色彩模型和映射函数组合,是由色彩模型和色域共同定义的。</mark></p>
+</blockquote>
+<blockquote>
+<p><mark>Notes:  色彩模型是人们描述色彩的方式，而色彩空间是人们根据色彩模型和相关算法来准确定义色彩的一个。</mark></p>
+</blockquote>
+</li>
+<li>
+<p>常见的色彩空间</p>
+<p>​		基于RGB色彩模型的色彩空间主要有：sRGB、 adobeRGB、 appleRGB和prophotoRGB。这些色彩空间在CIE标准色彩空间中的色域如下：</p>
+<figure data-type="image" tabindex="3"><img src="https://i.loli.net/2021/05/23/2ElrSCeh93BMwRt.png" alt="image-20210523212207917" loading="lazy"></figure>
+<p>​</p>
+</li>
+</ul>
+<h2 id="rgb-色彩模型">RGB 色彩模型</h2>
+<p>​		RGB是基于色光混合的原理设计的，是一种以硬件为导向的色彩模型，它描述了显示器的电子枪打在Red红、Green绿、Blue蓝三色发光极上的显色方式。当红绿蓝三色光的亮度均为最大值(255)的时候，屏幕上重现的颜色就是最亮的白色，都为0的时候，结果就是黑色。缺点是反人类，人无法直观的感知数值变化所对应的颜色变化。</p>
+<table>
+    <tr>
+        <td><center><img src="http://cdc.tencent.com/wp-content/uploads/2011/05/17.png" alt="品红色" style="zoom: 100%;"/></center></td>
+        <td><center><img src="http://cdc.tencent.com/wp-content/uploads/2011/05/2.png" alt="橙色" style="zoom: 100%;"/></center></td>
+    </tr>
+    <tr>
+        <td><center>品红色</center></td>
+        <td><center>品红色+橙色+亮度</center></td>
+    </tr>
+</table>
+​		[RGB](https://zh.wikipedia.org/wiki/RGB色彩空間)采用[加法混色](https://zh.wikipedia.org/wiki/加法混色)法，因为它是描述各种“光”通过何种比例来产生颜色。光线从暗黑开始不断叠加 产生颜色。RGB描述的是红绿蓝三色光的数值。[RGBA](https://zh.wikipedia.org/wiki/RGBA)是在RGB上增加阿尔法通道实现透明效果。基于RGB模式的普通色彩空间有[sRGB](https://zh.wikipedia.org/wiki/SRGB)，[Adobe RGB](https://zh.wikipedia.org/wiki/Adobe_RGB_色彩空间)和[Adobe Wide Gamut RGB](https://zh.wikipedia.org/w/index.php?title=Adobe_Wide_Gamut_RGB色彩空间&action=edit&redlink=1)。
+<figure data-type="image" tabindex="4"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/AdditiveColorMixing.svg/200px-AdditiveColorMixing.svg.png" alt="img" loading="lazy"></figure>
+<center>加法混色</center>
+<h2 id="hsl-色彩模型">HSL 色彩模型</h2>
+<figure data-type="image" tabindex="5"><img src="https://i.loli.net/2021/05/23/XsS9hGonDe5IYiU.jpg" alt="" loading="lazy"></figure>
+<center>HSV色锥模型
+<p>​		我们对色彩的认识往往是这样的：“这是什么颜色？深浅如何？明暗如何？”，这种认识是基于人类的主体感官而形成的，并不是基于反射光的物理性质。与RGB色彩模型相比，HSL色彩模型对色彩的表述方式非常友好，非常符合人类对色彩的感知习惯。HSL同样使用了3个分量来描述色彩，与RGB使用的三色光不同，HSL色彩的表述方式是：H(hue)色相，S(saturation)饱和度，以及L(lightness)亮度。两者的区别如下：<img src="https://i.loli.net/2021/05/23/fO9vrhbTZwLlADW.png" alt="img" loading="lazy"></p>
+<ul>
+<li>Hue</li>
+</ul>
+<p>​		HSL的H(hue)分量，代表的是人眼所能感知的颜色范围，这些颜色分布在一个平面的色相环上，取值范围是0°到360°的圆心角，每个角度可以代表一种颜色。色相值的意义在于，我们可以在不改变光感的情况下，通过旋转色相环来改变颜色。在实际应用中，我们需要记住色相环上的六大主色，用作基本参照：360°/0°红、60°黄、120°绿、180°青、240°蓝、300°洋红，它们在色相环上按照60°圆心角的间隔排列，如下图：</p>
+<img src="https://i.loli.net/2021/05/23/oUCTh26GgXfyduO.png" alt="img" style="zoom:80%;" />
+<ul>
+<li>
+<p>Saturation</p>
+<p>​		HSL的S(saturation)分量，指的是色彩的饱和度，它用0%至100%的值描述了相同色相、明度下色彩纯度的变化。数值越大，颜色中的灰色越少，颜色越鲜艳，呈现一种从理性(灰度)到感性(纯色)的变化，如下图：</p>
+<figure data-type="image" tabindex="6"><img src="https://i.loli.net/2021/05/23/jSuAlfFeJZzaEXV.png" alt="img" loading="lazy"></figure>
+</li>
+<li>
+<p>Lightness</p>
+<p>​	HSL的L(lightness)分量，指的是色彩的明度，作用是控制色彩的明暗变化。它同样使用了0%至100%的取值范围。数值越小，色彩越暗，越接近于黑色；数值越大，色彩越亮，越接近于白色。</p>
+<figure data-type="image" tabindex="7"><img src="https://i.loli.net/2021/05/23/dYgnOcVFopebU8s.png" alt="img" loading="lazy"></figure>
+<blockquote>
+<p>Notes: 因为HSL和HSV是设备依赖的RGB的简单变换,故每个独特的RGB设备都伴随着一个独特的HSL和HSV空间。具体变化方式详见参考链接5.</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="cmyk-色彩模型">CMYK 色彩模型</h2>
+<p>​		<strong>印刷四分色模式</strong>（CMYK）是彩色印刷时采用的一种套色模式，利用色料的<strong>三原色</strong>混色原理，加上黑色油墨，共计四种<a href="https://zh.wikipedia.org/wiki/%E9%A2%9C%E8%89%B2">颜色</a>混合叠加，形成所谓“全彩印刷”。这里使用了4个分量来描述色彩，他们分别是：青色（Cyan）、洋红色（Magenta）、黄色（Yellow）和黑色（blacK）</p>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/CMYK_color_swatches.png" alt="img" style="zoom:150%;" />
+<center>标准四分色
+<ul>
+<li>
+<p>混色过程</p>
+<p>​		洋红色加<a href="https://zh.wikipedia.org/wiki/%E9%BB%84%E8%89%B2">黄色</a>会形成<a href="https://zh.wikipedia.org/wiki/%E7%BA%A2%E8%89%B2">红色</a>；<a href="https://zh.wikipedia.org/wiki/%E6%B4%8B%E7%B4%85%E8%89%B2">洋红色</a>加<a href="https://zh.wikipedia.org/wiki/%E9%9D%92%E8%89%B2">青色</a>形成<a href="https://zh.wikipedia.org/wiki/%E8%93%9D%E8%89%B2">蓝色</a>；<a href="https://zh.wikipedia.org/wiki/%E9%9D%92%E8%89%B2">青色</a>加<a href="https://zh.wikipedia.org/wiki/%E9%BB%84%E8%89%B2">黄色</a>形成<a href="https://zh.wikipedia.org/wiki/%E7%BB%BF%E8%89%B2">绿色</a>。理论上只用上述三种颜色相加就可以形成包含<a href="https://zh.wikipedia.org/wiki/%E9%BB%91%E8%89%B2">黑色</a>在内101³共1,030,301色（0～100%模式），但实际印刷时，由于色料本身并非真正纯色，三色等量相加之后只能形成一种深<a href="https://zh.wikipedia.org/wiki/%E7%81%B0%E8%89%B2">灰色</a>或深<a href="https://zh.wikipedia.org/wiki/%E8%A4%90%E8%89%B2">褐色</a>，而非<a href="https://zh.wikipedia.org/wiki/%E9%BB%91%E8%89%B2">黑色</a>；实际偏色程度依不同厂牌色料配方而有不同差异。  此外以三层CMY叠印产生黑色不仅不容易立即干燥、不利于快速印刷，三色叠印也需要非常精确的套印，用于表现有许多细小线条的文字十分不利；直接以黑色油墨替代不纯的CMY三层叠印所产生的不纯黑色，也可以大大节省成本。故此“黑色”虽非“原色”，却成为彩色印刷必备的色彩之一。</p>
+</li>
+<li>
+<p>CMYK与RGB的区别</p>
+<p>​		<a href="https://zh.wikipedia.org/wiki/CMYK">CMYK</a>印刷过程中使用<a href="https://zh.wikipedia.org/wiki/%E5%87%8F%E6%B3%95%E6%B7%B7%E8%89%B2">减法混色</a>法，因为它描述的是需要使用何种<a href="https://zh.wikipedia.org/wiki/%E6%B2%B9%E5%A2%A8">油墨</a>，通过光的反射显示出颜色。它是在一种白色介质（画板，页面等）上使用油墨来体现图像。<a href="https://zh.wikipedia.org/wiki/CMYK">CMYK</a>描述的是青、品红、黄和黑四种油墨的数值。根据不同的油墨，介质，和印刷特性，存在多种CMYK色彩空间。</p>
+<figure data-type="image" tabindex="8"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Synthese-.svg/200px-Synthese-.svg.png" alt="img" loading="lazy"></figure>
+<center>减法混色
+</center>
+<p>​		印刷和<a href="https://zh.wikipedia.org/wiki/%E9%9B%BB%E8%85%A6">电脑</a>屏幕显示，分属两种不同的色彩模式（电脑屏幕为发光体，遵循RGB“<a href="https://zh.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E8%89%B2%E5%85%89%E6%A8%A1%E5%BC%8F">三原色光模式</a>原理”*；印刷为CMY+K油墨或墨水叠印、混色，遵循的是CMY“色料的三原色原理”），加上一般油墨印刷各原色网点色阶为0～100%，而电脑屏幕各原色光色阶为0～255，两者产生的色彩数差距甚大：CMYK仅有101³+101共1,030,402色，而RGB却有256³共16,777,216色；加上前述印刷油墨并非理想纯色，实际形成的<a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%96%93">色彩空间</a>也小于RGB，使得不管哪一种RGB模式都超出CMYK的<a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%9F%9F">色域</a>范围；故而印刷厂一般都会强调不能以屏幕上所看到的色彩要求输出成品的色差。</p>
+<figure data-type="image" tabindex="9"><img src="https://upload.wikimedia.org/wikipedia/commons/6/69/RGB_CMYK_4.jpg" alt="img" loading="lazy"></figure>
+<center>RGB与CMYK的区别
+</center>
+</li>
+<li>
+<p>RGB与CMYK印刷色的转换</p>
+<p>​		这种转换实际并不总是完全一致的，例如从<a href="https://zh.wikipedia.org/wiki/%E4%B8%89%E5%8E%9F%E8%89%B2%E5%85%89%E6%A8%A1%E5%BC%8F">三原色光模式</a>可以转换成印刷模式，印刷品仍然可以再转换成三原色光模式显示。但一件印刷模式的图片转换成三原色光模式显示，再转换成印刷模式就会造成<a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BD%A9">色彩</a>的畸变，两件印刷品的颜色会有区别。所以如果商业应用需要颜色非常精确时，不要使用转换的方法。详见参考链接4.</p>
+</li>
+</ul>
+<h2 id="color-management">Color Management</h2>
+<p>​		<strong>色彩管理</strong>（英语：Color Management，也称<strong>颜色管理</strong>）是一种用于在各种数字图像设备（如<a href="https://zh.wikipedia.org/wiki/%E6%89%AB%E6%8F%8F%E4%BB%AA">扫描仪</a>、<a href="https://zh.wikipedia.org/wiki/%E6%95%B0%E7%A0%81%E7%9B%B8%E6%9C%BA">数字相机</a>、<a href="https://zh.wikipedia.org/wiki/%E6%98%BE%E7%A4%BA%E5%99%A8">显示器</a>、<a href="https://zh.wikipedia.org/wiki/%E6%89%93%E5%8D%B0%E6%9C%BA">打印机</a>等）之间进行可控的<a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BD%A9">色彩</a>转换的技术。色彩管理的首要目的是让不同的设备能保持相对统一的色彩表现效果。目标是在目标设备或物料上提供相对于原件最理想的色彩效果，如显示器的色彩管理。或是让用户能预览原件在不同的设备或者物料上的色彩效果，如印前在显示器上模拟印刷后的颜色等。由于不同的设备和物料的固有特性，在绝大多数情况下通过色彩管理是无法得到与原件100%相同的色彩表现效果的。因此色彩管理的校准效果是相对的而不是绝对的。<a href="https://zh.wikipedia.org/wiki/%E5%9B%BD%E9%99%85%E8%89%B2%E5%BD%A9%E8%81%94%E7%9B%9F">ICC</a>制定了<a href="https://zh.wikipedia.org/wiki/ICC%E8%89%B2%E5%BD%A9%E7%89%B9%E6%80%A7%E6%96%87%E4%BB%B6">一套通用文件规范</a>用于在不同<a href="https://zh.wikipedia.org/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">操作系统</a>和<a href="https://zh.wikipedia.org/wiki/%E8%BD%AF%E4%BB%B6">软件</a>之间进行跨平台的色彩管理。</p>
+<p>​		色彩管理主要分为3个基本步骤：设备校准、特性化和色彩转换。</p>
+<ul>
+<li><strong>设备校准</strong>主要是进行灰阶校准（<em>Linearization</em>）以抵消设备本身的<a href="https://zh.wikipedia.org/wiki/%E4%BC%BD%E9%A9%AC%E6%A0%A1%E6%AD%A3">伽马校正</a>（<em>Gamma Correction</em>）的影响。</li>
+<li><strong>特性</strong>指的是设备的色彩表现能力，通称<a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BD%A9%E8%8C%83%E5%9B%B4">色彩范围</a>（色域）（<em>Gamut</em>）色彩输入和输出仪器以及各类彩色物料（例如油墨、显示器的发光剂和滤光片等）都有一定的色域。<strong>特性化</strong>过程对设备和物料进行相对于标准色彩空间（如<a href="https://zh.wikipedia.org/wiki/SRGB">sRGB</a>）的比较测量，并以数学方式记录（<em>Profiling</em>）受测设备的特性，生成设备特性文件，通常是<a href="https://zh.wikipedia.org/wiki/ICC%E8%89%B2%E5%BD%A9%E7%89%B9%E6%80%A7%E6%96%87%E4%BB%B6">ICC色彩特性文件</a>，以便进行色彩转换。</li>
+<li><strong>色彩转换</strong>将原件的色彩根据之前的ICC色彩特性文件进行转换，也叫色域转换（<em>Gamut Mapping</em>）以求在目标设备或物料上提供最理想的色彩效果。</li>
+</ul>
 <h1 id="参考链接">参考链接</h1>
 <ol>
 <li><a href="https://www.zhihu.com/question/296297701/answer/565941564"> 计算机中的文字和图像是如何显示的？</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/149429406">常见的图片格式</a></li>
+<li><a href="https://cdc.tencent.com/2011/05/09/%E8%89%B2%E7%94%9F%E5%BF%83%E4%B8%AD%EF%BC%9A%E4%BA%BA%E6%80%A7%E5%8C%96%E7%9A%84hsl%E6%A8%A1%E5%9E%8B/">色生心中：人性化的HSL模型 </a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%8D%B0%E5%88%B7%E5%9B%9B%E5%88%86%E8%89%B2%E6%A8%A1%E5%BC%8F">印刷的四分色模式</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4">HSL和HSV色彩空间 - 维基百科</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%96%93">色彩空间</a></li>
 </ol>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
+<li><a href="#0-%E7%89%A9%E4%BD%93%E6%88%90%E5%83%8F%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86">0. 物体成像基本原理</a></li>
 <li><a href="#1-%E5%9B%BE%E5%83%8F%E5%AD%98%E5%82%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A0%BC%E5%BC%8F">1. 图像存储的基本格式</a>
 <ul>
 <li><a href="#%E4%BD%8D%E5%9B%BE">位图</a></li>
@@ -227,6 +328,14 @@
 <li><a href="#%E5%BA%94%E7%94%A8%E4%B8%BE%E4%BE%8B">应用举例</a></li>
 </ul>
 </li>
+<li><a href="#3-%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%89%B2%E5%BD%A9%E7%9F%A5%E8%AF%86">3. 基本的色彩知识</a>
+<ul>
+<li><a href="#rgb-%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%9E%8B">RGB 色彩模型</a></li>
+<li><a href="#hsl-%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%9E%8B">HSL 色彩模型</a></li>
+<li><a href="#cmyk-%E8%89%B2%E5%BD%A9%E6%A8%A1%E5%9E%8B">CMYK 色彩模型</a></li>
+<li><a href="#color-management">Color Management</a></li>
+</ul>
+</li>
 <li><a href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">参考链接</a></li>
 </ul>
 
@@ -238,9 +347,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://Ceazy-Gentleman.github.io/post/C++ vector详解/">
+            <a href="https://Ceazy-Gentleman.github.io/post/hello-gridea/">
               <h3 class="post-title">
-                Vｅｃｔｏｒ详解
+                Hello Gridea
               </h3>
             </a>
           </div>
